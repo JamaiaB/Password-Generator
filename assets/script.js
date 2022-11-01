@@ -5,6 +5,7 @@ var upperCase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var num = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specChar = ["@", "#", "$", "%", "^", "&", "*", "+", "?", "/", "~"];
 var input = [];
+var guaranteedChar = [];
 var password = '';
 
 // Assignment Code
@@ -34,25 +35,26 @@ function generatePassword() {
     var userSpecChar = window.confirm("Would you like to include special characters?");
 
     if (userUpperCase) {
-        input += upperCase;
+        input.push(...upperCase);
     }
 
     if (userLowCase) {
-        input += lowCase;
+        input.push(...lowCase);
     }
 
     if (userNum) {
-        input += num;
+        input.push(...num);
     }
 
     if (userSpecChar) {
-        input += specChar;
+        input.push(...specChar);
     }
-    // Confirm the use of uppercase, lowercase, numeric and/or special characters.
-    if (!userUpperCase && !userLowCase && !userNum && !userSpecChar) {
+     //Confirm the use of uppercase, lowercase, numeric and/or special characters.
+     if (!userUpperCase && !userLowCase && !userNum && !userSpecChar) {
         window.alert("Invalid! You must make at least one selection!")
-        writePassword()
+        writePassword() 
     }
+    
     for (var i = 0; i < length; i++) {
         var randomNumber = Math.floor(Math.random() * input.length);
         console.log("password;", password)
